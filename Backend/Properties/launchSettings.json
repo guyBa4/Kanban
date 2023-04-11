@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Backend": {
+      "commandName": "Project",
+      "workingDirectory": "C:\\Users\\tamuz\\Documents\\gitM1\\Backend\\bin\\Debug\\net5.0"
+    }
+  }
+}

@@ -1,0 +1,29 @@
+﻿<Window x:Class="Presentation.View.TaskW"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:viewmodel="clr-namespace:Presentation.ViewModel" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" d:DataContext="{d:DesignInstance Type=viewmodel:TaskVM}"
+        mc:Ignorable="d"
+
+        Title="Task" Height="500" Width="900">
+    <Grid Margin="0,0,0,0">
+        <StackPanel Orientation="Vertical"  Margin="0,0,0,0" Grid.ColumnSpan="1">
+            <Label Content="Title  (Type to edit)" />
+            <TextBox Text="{Binding Path=Title, Mode=TwoWay}"/>
+            <Label Content="Id"/>
+            <TextBox Text="{Binding Path=Id, Mode=OneWay}"/>
+            <Label Content="Description  (Type to edit, format: ??/??/????)"/>
+            <TextBox Text="{Binding Path=Description, Mode=TwoWay}"/>
+            <Label Content="Creation Time"/>
+            <TextBox Text="{Binding Path=CreationTime, Mode=OneWay}"/>
+            <Label Content="Due Date  (Type to edit)"/>
+            <TextBox Text="{Binding Path=DueDate, Mode=TwoWay}"/>
+            <Label Content="Assignee  (Type to edit)"/>
+            <TextBox Text="{Binding Path=Assignee, Mode=TwoWay}"/>
+            <Button Content="Back" Click="Back_Click" Width="186" Height="35"/>
+            <Label Content="{Binding Error, Mode=OneWay}" Height="46" Width="464" Background="{x:Null}" Foreground="Red" HorizontalContentAlignment="Center" FontSize="16"/>
+
+        </StackPanel>
+        
+
+    </Grid>
+</Window>

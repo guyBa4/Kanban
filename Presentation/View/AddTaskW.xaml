@@ -1,0 +1,22 @@
+﻿<Window x:Class="Presentation.View.AddTaskW"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewmodel="clr-namespace:Presentation.ViewModel" d:DataContext="{d:DesignInstance Type=viewmodel:AddTaskVM}"
+        mc:Ignorable="d"
+        Title="Add Task" Height="500" Width="900">
+    <Grid Margin="0,0,0,0" RenderTransformOrigin="0.507,0.632">
+        <StackPanel Orientation="Vertical"  Margin="0,0,0,75" Grid.ColumnSpan="2" RenderTransformOrigin="0.501,0.549">
+            <Label Content="Title"/>
+            <TextBox Text="{Binding Mode=OneWayToSource, Path=Title}"/>
+            <Label Content="Description"/>
+            <TextBox Text="{Binding Mode=OneWayToSource, Path=Description}"/>
+            <Label Content="Due Date (format: ??/??/????)"/>
+            <TextBox Text="{Binding Mode=OneWayToSource, Path=DueDate}"/>
+            <Button Content="Create" Click="Create_Click" Height="32" Width="148"/>
+            <Button Content="Cancel" Click="Cancel_Click" Height="31" Width="148"/>
+        </StackPanel>
+
+    </Grid>
+</Window>

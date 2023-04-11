@@ -1,0 +1,25 @@
+﻿<Window x:Class="Presentation.View.FilterTasksW"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Presentation.View" xmlns:viewmodel="clr-namespace:Presentation.ViewModel" d:DataContext="{d:DesignInstance Type=viewmodel:FilterTasksVM}"
+        mc:Ignorable="d"
+        Title="FilterTasks" Height="450" Width="700">
+    <Grid>
+        <Label Content="Type a word you are looking for in a task title or description:" Margin="25,0,0,10" FontSize="14"/>
+        <DockPanel Margin="30,30,30,67">
+            <TextBox DockPanel.Dock="Top" Margin="0,0,0,10" Width="250" Name="txtFilter" TextChanged="txtFilter_TextChanged" FontSize="14"/>
+            <ListView Name="colTasks" VerticalAlignment="Top" SelectedItem="{Binding Path=SelectedTask, Mode=TwoWay}">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Title" Width="120" DisplayMemberBinding="{Binding Title}" />
+                        <GridViewColumn Header="Description" Width="450" DisplayMemberBinding="{Binding Description}" />
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </DockPanel>
+        <Button Content="Back" HorizontalAlignment="Left"  Margin="560,372,0,0" VerticalAlignment="Top" Height="31" Width="95" Click="Back_Button_Click"/>
+        <Button Content="Open" HorizontalAlignment="Left"  Margin="419,372,0,0" IsEnabled="{Binding Path=TaskEnableForward ,Mode=OneWay}" VerticalAlignment="Top" Height="31" Width="95" Click="Open_Button_Click"/>
+    </Grid>
+</Window>

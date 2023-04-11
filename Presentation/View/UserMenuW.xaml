@@ -1,0 +1,48 @@
+﻿<Window x:Class="Presentation.View.UserMenuW"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Presentation.View" xmlns:viewmodel="clr-namespace:Presentation.ViewModel" d:DataContext="{d:DesignInstance Type=viewmodel:UserMenuVM}"
+        mc:Ignorable="d"
+        Title="UserMenu" Height="500" Width="900">
+    <Grid UseLayoutRounding="True" RenderTransformOrigin="0.499,0.505" ShowGridLines="True">
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="0,36,0,0" Width="291" VerticalAlignment="Top">
+            <ListBox ItemsSource="{Binding Path=Menu.Boards}" SelectedItem="{Binding Path=SelectedBoard, Mode=TwoWay}" VerticalContentAlignment="Top" Height="405" Width="291" ScrollViewer.HorizontalScrollBarVisibility="Disabled" >
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Border BorderThickness="1" BorderBrush="Black">
+                            <StackPanel Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"  Margin="0,32,0,0" Width="270">
+                                <Label Content="{Binding Path=Name, Mode=OneWay}" BorderBrush="{x:Null}" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold"/>
+                            </StackPanel>
+                        </Border>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </StackPanel>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="378,38,0,-2" Width="290" VerticalAlignment="Top">
+            <ListBox ItemsSource="{Binding Path=User.InProgTasks}" SelectedItem="{Binding Path=SelectedTask, Mode=TwoWay}" VerticalContentAlignment="Top" Height="405" Width="290" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Border BorderThickness="1" BorderBrush="Black">
+                            <StackPanel Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"  Margin="0,32,0,0" Width="270" >
+                                <Label Content="{Binding Path=Title, Mode=OneWay}" BorderBrush="{x:Null}" BorderThickness="3" Background="{Binding Path=BackgroundColor, Mode=OneWay}" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold"/>
+                                <Label Content="{Binding Path=DueDate, Mode=OneWay}" BorderBrush="{x:Null}" FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Center"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold"/>
+                            </StackPanel>
+                        </Border>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </StackPanel>
+
+        <Button Content="Show Task" HorizontalAlignment="Left" Margin="745,265,0,0" IsEnabled="{Binding Path=TaskEnableForward ,Mode=OneWay}" VerticalAlignment="Top" Height="29" Width="95" FontSize="14" Click="Show_Task_Click"/>
+        <Button Content="Enter Board" Click="Enter_Board_Button" IsEnabled="{Binding Path=BoardEnableForward,Mode=OneWay}" HorizontalAlignment="Left" Margin="745,50,0,0" VerticalAlignment="Top" Height="28" Width="95"/>
+        <Button Content="Remove Board" Click="Remove_Board_Button" IsEnabled="{Binding Path=BoardEnableForward,Mode=OneWay}" HorizontalAlignment="Left" Margin="745,103,0,0" VerticalAlignment="Top" Height="29" Width="95"/>
+        <Label Content="My Boards" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Margin="59,-2,0,0" VerticalAlignment="Top" Height="38" Width="174" FontSize="20" FontStyle="Normal" FontWeight="Bold"/>
+        <Label Content="In Progress Tasks" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Margin="436,0,0,0" VerticalAlignment="Top" Height="38" Width="174" FontSize="20" FontStyle="Normal" FontWeight="Bold"/>
+        <Button Content="Logout" HorizontalAlignment="Left"  Margin="745,373,0,0" VerticalAlignment="Top" Height="31" Width="95" Click="Logout_Button_Click"/>
+        <Button Content="Join Board" HorizontalAlignment="Left" Margin="745,156,0,0" VerticalAlignment="Top" Height="29" Width="95" Click="Join_Board_Button_Click"/>
+        <Button Content="Create Board" HorizontalAlignment="Left" Margin="745,212,0,0" VerticalAlignment="Top" Height="29" Width="95" Click="Create_Board_Button_Click"/>
+
+    </Grid>
+</Window>

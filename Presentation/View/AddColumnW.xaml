@@ -1,0 +1,21 @@
+﻿<Window x:Class="Presentation.View.AddColumnW"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Presentation.View" xmlns:viewmodel="clr-namespace:Presentation.ViewModel" d:DataContext="{d:DesignInstance Type=viewmodel:AddColumnVM}"
+        mc:Ignorable="d"
+        Title="Add Column" Height="250" Width="400">
+    <Grid>
+        <Label Content="Name of column:" HorizontalAlignment="Left" Margin="36,24,0,0" VerticalAlignment="Top" Height="33" Width="132" FontSize="16"/>
+        <Label Content="Ordinal of column:" HorizontalAlignment="Left" Margin="36,59,0,0" VerticalAlignment="Top" Height="33" Width="144" FontSize="16"/>
+        <TextBox Text="{Binding Path=ColName, Mode=OneWayToSource}" HorizontalAlignment="Left" Margin="187,28,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="133" Height="25" FontSize="16"/>
+        <TextBox Text="{Binding Path=ColOrdinal, Mode=OneWayToSource}" Name="OrdinalBox" HorizontalAlignment="Left" HorizontalContentAlignment="Center" TextChanged="Ordinal_Box_Text_Change" Margin="187,63,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="67" Height="25" FontSize="16"/>
+        <Label Content="{Binding Path=Error, Mode=OneWay}"  HorizontalAlignment="Left" Margin="98,0,0,0" VerticalAlignment="Center" Height="32" Width="211" FontSize="16" HorizontalContentAlignment="Center"/>
+        <Button Content="OK" HorizontalAlignment="Left" Height="28" Margin="98,141,0,0" VerticalAlignment="Top" Width="82" Click="OK_Click"/>
+        <Button Content="Cancel" HorizontalAlignment="Left" Height="28" Margin="227,141,0,0" VerticalAlignment="Top" Width="82" Click="Cancel_Click"/>
+
+    </Grid>
+
+
+</Window>
